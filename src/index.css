@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+button {
+  height: 60px;
+  min-width: 60px;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 0.5rem;
+  font-size: 1.5em;
+  padding-left: 0.65em;
+  background-color: burlywood;
+  color: mediumblue;
+  cursor: pointer;
+}
+
+button:focus, 
+button:hover {
+  color: white;
+  background-color: limegreen;
+  outline: none;
+}
