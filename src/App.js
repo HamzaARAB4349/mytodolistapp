@@ -4,28 +4,17 @@ import './App.css';
 import Header from './Header';
 import Content from './Content';
 import Footer from './Footer';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 function App() {
-  const [Activities,setActivities] = useState([
-    {
-        id: 1,
-        checked: true,
-        Activitie: "Programming"
-    },
-    {
-        id: 2,
-        checked: false,
-        Activitie: "Activitie 2"
-    },
-    {
-        id: 3,
-        checked: false,
-        Activitie: "Activitie 3"
-    }
-]);
+  const [Activities,setActivities] = useState(JSON.parse(localStorage.getItem('activitiesList')) || []);
   const [search,setSearch] = useState("");
   const [newActivitie,setnewActivitie] = useState("");
 
+
+  useEffect(
+
+    () =>{localStorage.setItem("activitiesList",JSON.stringify(Activities))}
+  ,[Activities])
 
   const handleCheck = (id) => {
       const updateActivities =  Activities.map((activitie) => (
